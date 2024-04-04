@@ -1,0 +1,51 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'br.com.luiz.searchzipcode'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "br.com.luiz.searchzipcode"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+
+    implementation libs.dagger.android
+    implementation libs.dagger.android.support
+    annotationProcessor libs.dagger.android.processor
+    annotationProcessor libs.dagger.compiler
+
+    implementation libs.okhttp
+    implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+    implementation libs.code.gson
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
