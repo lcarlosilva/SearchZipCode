@@ -42,11 +42,11 @@ dependencies {
     annotationProcessor libs.dagger.android.processor
     annotationProcessor libs.dagger.compiler
 
-/* TODO: VERIFICAR A NECESSIDADE DESSAS DEPENDÊNCIAS
+/* TODO: VERIFICAR A NECESSIDADE DESSAS DEPENDÊNCIAS*/
     implementation libs.okhttp
     implementation libs.retrofit
     implementation libs.retrofit.converter.gson
-    implementation libs.code.gson*/
+    implementation libs.code.gson
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit

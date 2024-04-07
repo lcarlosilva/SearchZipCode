@@ -3,12 +3,22 @@ package br.com.luiz.searchzipcode;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.IOException;
+
+import javax.inject.Inject;
+
+import okhttp3.OkHttpClient;
+
 public class MainActivity extends AppCompatActivity {
+
+    @Inject
+    OkHttpClient mOkHttpClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +33,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ((SearchZipCodeApp)getApplication()).getSearchZipCodeAppComponent().inject(this);
+
+        String url = "https://viacep.com.br/ws/14802157/json/";
+//        String url = "https://cep.awesomeapi.com.br/json/14802157";
+        /*mOkHttpClient.newCall(new okhttp3.Request.Builder().url(url).build()).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(@NonNull okhttp3.Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) throws IOException {
+                System.out.println(response.body().string());
+            }
+        });*/
     }
 }

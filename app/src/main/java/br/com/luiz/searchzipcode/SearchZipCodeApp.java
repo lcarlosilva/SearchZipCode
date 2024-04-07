@@ -17,7 +17,8 @@ public class SearchZipCodeApp extends Application {
 
         mSearchZipCodeAppComponent = DaggerSearchZipCodeAppComponent.builder()
                 .searchZipCodeAppModule(new SearchZipCodeAppModule(this))
-                .dataModule(new DataModule())
+                .dataModule(new DataModule("https://viacep.com.br/ws/"))
+                .dataModule(new DataModule("https://cep.awesomeapi.com.br/json/"))
                 .build();
     }
 
