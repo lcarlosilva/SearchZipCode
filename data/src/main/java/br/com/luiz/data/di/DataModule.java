@@ -6,6 +6,10 @@ import com.google.gson.GsonBuilder;
 
 import javax.inject.Singleton;
 
+import br.com.luiz.data.remote.api.ISearchZipCode;
+import br.com.luiz.data.repository.ZipCodeRepositoryImpl;
+//import br.com.luiz.domain.models.AddressResponse;
+import br.com.luiz.domain.repository.ZipCodeRepository;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -21,6 +25,7 @@ public class DataModule {
         mBaseUrl = baseUrl;
     }
 
+    /*TODO: ajustar o projeto para obter o Application aqui*/
     /* @Provides
     @Singleton
     Cache provideOkHttpCache(Application application) {
@@ -52,6 +57,12 @@ public class DataModule {
                 .baseUrl(mBaseUrl)
                 .client(okHttpClient)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    ZipCodeRepository provideZipCodeRepository(ISearchZipCode api, OkHttpClient okHttpClient) {
+        return new ZipCodeRepositoryImpl(api, okHttpClient);
     }
 }
 
