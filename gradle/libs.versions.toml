@@ -11,6 +11,8 @@ dagger = "2.20"
 refrofit = "2.9.0"
 okhttp = "4.9.3"
 gson = "2.10.1"
+rxJava = "3.0.0"
+rxAndroid = "2.1.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -27,8 +29,11 @@ dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", versi
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "refrofit" }
+retrofit-adapter-rxjava3 = { group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref = "refrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "refrofit"}
 code-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+io-reactivex-rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJava" }
+io-reactivex-rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
