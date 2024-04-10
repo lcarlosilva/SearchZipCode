@@ -1,4 +1,4 @@
-package br.com.luiz.data.remote.models;
+package br.com.luiz.domain.models;
 
 import com.google.gson.annotations.SerializedName;
 
