@@ -1,5 +1,16 @@
-apply plugin: "java-library"
+plugins {
+    //alias(libs.plugins.androidApplication)
+    //id 'com.android.application'
+    //id 'com.android.library'
+    id 'java-library'
+}
 
+/*android {
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}*/
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
@@ -9,13 +20,18 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation project(':domain')
+
     implementation libs.dagger.android
     implementation libs.dagger.android.support
     annotationProcessor libs.dagger.android.processor
     annotationProcessor libs.dagger.compiler
 
     implementation libs.okhttp
+    implementation libs.io.reactivex.rxjava3
+    implementation libs.io.reactivex.rxandroid
     implementation libs.retrofit
+    implementation libs.retrofit.adapter.rxjava3
     implementation libs.retrofit.converter.gson
     implementation libs.code.gson
 

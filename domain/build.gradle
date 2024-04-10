@@ -1,4 +1,7 @@
-apply plugin: "java-library"
+plugins {
+    // id 'com.android.application'
+    id 'java-library'
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -13,5 +16,8 @@ dependencies {
     implementation libs.dagger.android.support
     annotationProcessor libs.dagger.android.processor
     annotationProcessor libs.dagger.compiler
+
+    implementation libs.retrofit.converter.gson
+    implementation libs.code.gson
 
 }
