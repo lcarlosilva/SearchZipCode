@@ -13,6 +13,7 @@ okhttp = "4.9.3"
 gson = "2.10.1"
 rxJava = "3.0.0"
 rxAndroid = "2.1.0"
+lifecycle = "1.1.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -30,10 +31,12 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtt
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "refrofit" }
 retrofit-adapter-rxjava3 = { group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref = "refrofit" }
-retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "refrofit"}
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "refrofit" }
 code-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
-io-reactivex-rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJava" }
-io-reactivex-rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxAndroid" }
+io-reactivex-rxjava3 = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxJava" }
+io-reactivex-rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxAndroid" }
+android-arch-lifecycle-extensions = { group = "android.arch.lifecycle", name = "extensions", version.ref = "lifecycle" }
+android-arch-lifecycle-reactivestreams = { group = "android.arch.lifecycle", name = "reactivestreams", version.ref = "lifecycle" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
