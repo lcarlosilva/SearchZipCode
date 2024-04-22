@@ -1,20 +1,22 @@
-package br.com.luiz.searchzipcode;
+package br.com.luiz.searchzipcode.ui;
 
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import java.io.IOException;
+import androidx.lifecycle.ViewModelProvider;
 
 import javax.inject.Inject;
 
+import br.com.luiz.searchzipcode.R;
+import br.com.luiz.searchzipcode.presentation.SearchZipCodeViewModel;
+import dagger.hilt.android.AndroidEntryPoint;
 import okhttp3.OkHttpClient;
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     @Inject
@@ -32,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        ((SearchZipCodeApp)getApplication()).getSearchZipCodeAppComponent().inject(this);
+        SearchZipCodeViewModel viewModel = new ViewModelProvider(this).get(SearchZipCodeViewModel.class);
 
-        String url = "https://viacep.com.br/ws/14802157/json/";
-//        String url = "https://cep.awesomeapi.com.br/json/14802157";
+        viewModel.searchZipCode("14802157");
+
+        // Exemplo de requisição GET com OkHttp
+        // String url = "https://viacep.com.br/ws/14802157/json/";
+        // String url = "https://cep.awesomeapi.com.br/json/14802157";
         /*mOkHttpClient.newCall(new okhttp3.Request.Builder().url(url).build()).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(@NonNull okhttp3.Call call, IOException e) {
