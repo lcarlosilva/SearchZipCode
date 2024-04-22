@@ -1,24 +1,11 @@
 package br.com.luiz.searchzipcode.di;
 
-import android.app.Application;
-
-import javax.inject.Singleton;
-
+import br.com.luiz.data.di.DataModule;
+import br.com.luiz.domain.di.DomainModule;
 import dagger.Module;
-import dagger.Provides;
+import dagger.hilt.InstallIn;
+import dagger.hilt.components.SingletonComponent;
 
-@Module
-public class SearchZipCodeAppModule {
-
-    Application mApplication;
-
-    public SearchZipCodeAppModule(Application application) {
-        mApplication = application;
-    }
-
-    @Provides
-    @Singleton
-    Application providesApplication() {
-        return mApplication;
-    }
-}
+@Module(includes = {DataModule.class, DomainModule.class})
+@InstallIn(SingletonComponent.class)
+public class SearchZipCodeAppModule { }

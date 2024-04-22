@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import br.com.luiz.domain.models.AddressResponse;
 import br.com.luiz.domain.repository.ZipCodeRepository;
+import io.reactivex.rxjava3.core.Flowable;
 
 public class SearchZipCodeUseCase {
 
@@ -14,8 +15,7 @@ public class SearchZipCodeUseCase {
         this.zipCodeRepository = zipCodeRepository;
     }
 
-    public AddressResponse searchZipCode(String zipCode) {
-        AddressResponse addressResponse = zipCodeRepository.searchZipCode(zipCode);
-        return addressResponse;
+    public Flowable<AddressResponse> searchZipCode(String zipCode) {
+        return zipCodeRepository.searchZipCode(zipCode);
     }
 }

@@ -1,15 +1,15 @@
 package br.com.luiz.domain.di;
 
 
-import br.com.luiz.domain.repository.ZipCodeRepository;
-import br.com.luiz.domain.usecase.SearchZipCodeUseCase;
 import dagger.Module;
-import dagger.Provides;
+import dagger.hilt.InstallIn;
+import dagger.hilt.components.SingletonComponent;
 
 @Module
+@InstallIn(SingletonComponent.class)
 public class DomainModule {
-    @Provides
+    /*@Provides
     public SearchZipCodeUseCase provideSearchZipCodeUseCase(ZipCodeRepository repository) {
         return new SearchZipCodeUseCase(repository);
-    }
+    }*/
 }

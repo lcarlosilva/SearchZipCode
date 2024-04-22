@@ -4,6 +4,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import br.com.luiz.data.remote.api.ISearchZipCode;
@@ -12,17 +13,22 @@ import br.com.luiz.data.repository.ZipCodeRepositoryImpl;
 import br.com.luiz.domain.repository.ZipCodeRepository;
 import dagger.Module;
 import dagger.Provides;
+import dagger.hilt.InstallIn;
+import dagger.hilt.components.SingletonComponent;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
+@InstallIn(SingletonComponent.class)
 public class DataModule {
 
     private final String mBaseUrl;
 
-    public DataModule(String baseUrl) {
-        mBaseUrl = baseUrl;
+    @Inject
+    public DataModule(/*String baseUrl*/) {
+        mBaseUrl = "https://cep.awesomeapi.com.br/json/";
     }
 
     /*TODO: ajustar o projeto para obter o Application aqui*/
@@ -54,6 +60,7 @@ public class DataModule {
     Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .baseUrl(mBaseUrl)
                 .client(okHttpClient)
                 .build();
@@ -61,8 +68,14 @@ public class DataModule {
 
     @Provides
     @Singleton
-    ZipCodeRepository provideZipCodeRepository(ISearchZipCode api, OkHttpClient okHttpClient) {
-        return new ZipCodeRepositoryImpl(api, okHttpClient);
+    ZipCodeRepository provideZipCodeRepository(ISearchZipCode api) {
+        return new ZipCodeRepositoryImpl(api);
+    }
+
+    @Provides
+    @Singleton
+    ISearchZipCode provideISearchZipCode(Retrofit retrofit) {
+        return retrofit.create(ISearchZipCode.class);
     }
 }
 

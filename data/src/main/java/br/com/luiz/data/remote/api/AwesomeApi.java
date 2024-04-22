@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface AwesomeApi extends ISearchZipCode {
-    @GET("json/{cep}")
+    @GET("/{cep}")
     /*Observable*/Single<AddressResponse> getAddressInfo(@Path("cep") String cep);
 }
