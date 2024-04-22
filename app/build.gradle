@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
+//    id "org.jetbrains.kotlin.kapt"
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -33,10 +35,19 @@ dependencies {
     implementation project(':data')
     implementation project(':domain')
 
+    implementation "com.google.dagger:hilt-android:2.44"
+    annotationProcessor "com.google.dagger:hilt-compiler:2.44"
+
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
     implementation libs.constraintlayout
+    implementation libs.android.arch.lifecycle.extensions
+    implementation libs.android.arch.lifecycle.reactivestreams
+
+    implementation libs.io.reactivex.rxjava3
+    implementation libs.io.reactivex.rxandroid
+    implementation libs.retrofit.adapter.rxjava3
 
     implementation libs.dagger.android
     implementation libs.dagger.android.support

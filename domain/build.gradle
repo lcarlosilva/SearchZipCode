@@ -12,10 +12,15 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "com.google.dagger:hilt-core:2.44"
+    annotationProcessor "com.google.dagger:hilt-compiler:2.44"
+
     implementation libs.dagger.android
     implementation libs.dagger.android.support
     annotationProcessor libs.dagger.android.processor
     annotationProcessor libs.dagger.compiler
+
+    implementation libs.io.reactivex.rxjava3
 
     implementation libs.retrofit.converter.gson
     implementation libs.code.gson
