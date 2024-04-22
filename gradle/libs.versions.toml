@@ -11,8 +11,8 @@ dagger = "2.20"
 refrofit = "2.9.0"
 okhttp = "4.9.3"
 gson = "2.10.1"
-rxJava = "3.0.0"
-rxAndroid = "2.1.0"
+rxJava = "3.1.5"
+rxAndroid = "3.0.2"
 lifecycle = "1.1.1"
 
 [libraries]
